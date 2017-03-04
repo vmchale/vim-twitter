@@ -184,7 +184,6 @@ fun! TwitterWriteFromBuffer() "{{{
     execute 'resize ' . size
 
     nnoremap <silent> <buffer> t <esc>:w !tweet -c ~/.cred send -t15<cr> 
-    " nnoremap <silent> <buffer> d <esc>:w !tweet -c ~/.cred send -t15 \| :close<cr> 
     nnoremap <silent> <buffer> q <esc>:close<cr>
 
 endfunction "}}}
