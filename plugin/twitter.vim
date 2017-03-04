@@ -131,7 +131,7 @@ fun! TwitterTimeline() "{{{
 endfunction "}}}
 
 " Open a scratch buffer or reuse the previous one
-fun! TwitterProfile(a:screen_name) "{{{
+fun! TwitterProfile(screen_name) "{{{
     let last_buffer = bufnr("%")
 
     if s:TwitterGotoWin() < 0
