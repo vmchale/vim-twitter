@@ -9,7 +9,7 @@ You'll have to install the Haskell **C**ommand **L**ine **I**nterface
 stack install clit
 ```
 
-You can also download it from [here](https://github.com/vmchale/command-line-tweeter); 
+You can also download it from [here](https://github.com/vmchale/command-line-tweeter/releases); 
 hopefully it shouldn't be too hard to find. 
 
 ## Config

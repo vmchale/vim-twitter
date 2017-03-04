@@ -130,6 +130,38 @@ fun! TwitterTimeline() "{{{
 
 endfunction "}}}
 
+" Open a scratch buffer or reuse the previous one
+fun! TwitterProfile(a:screen_name) "{{{
+    let last_buffer = bufnr("%")
+
+    if s:TwitterGotoWin() < 0
+        new
+        exe 'file ' . g:twitter_tl_buf_name
+        setl modifiable
+    else
+        setl modifiable
+        normal ggVGd
+    endif
+
+    call s:ScratchMarkBuffer()
+
+    " separate function? cuz this should read/display stuff too. 
+    " execute ':w .! tweet -c' . g:twitter_num
+    execute '.! tweet -c ~/.cred user -n' . g:twitter_num . ' ' . a:screen_name
+    setl nomodifiable
+    
+    let size = s:CountVisualLines()
+
+    if size > g:twitter_tl_buf_size
+        let size = g:twitter_tl_buf_size
+    endif
+
+    execute 'resize ' . size
+
+    nnoremap <silent> <buffer> q <esc>:close<cr>
+
+endfunction "}}}
+
 fun! TwitterWriteFromBuffer() "{{{
     let last_buffer = bufnr("%")
 
@@ -159,4 +191,5 @@ endfunction "}}}
 
 command! Tweet call TwitterWriteFromBuffer()
 command! Timeline call TwitterTimeline()
+command! -nargs=1 Timeline call TwitterTimeline(<f-args>)
 map <silent> tt :Timeline<CR>
