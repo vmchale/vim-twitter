@@ -1,0 +1,49 @@
+*twitter.txt* Use howdoi without leaving vim!
+    __                      __      _          _
+   / /_  ____ _      ______/ /___  (_)  _   __(_)___ ___
+  / __ \/ __ \ | /| / / __  / __ \/ /  | | / / / __ `__ \
+ / / / / /_/ / |/ |/ / /_/ / /_/ / /   | |/ / / / / / / /
+/_/ /_/\____/|__/|__/\__,_/\____/_/    |___/_/_/ /_/ /_/
+
+====================================================================
+CONTENTS                                            *TwitterContents*
+
+    1. Usage ......................................... |TwitterUsage|
+    2. Config ....................................... |TwitterConfig|
+    3. License ..................................... |TwitterLicense|
+
+====================================================================
+Section 1: Usage                                       *TwitterUsage*
+
+By default, twitter-vim provides a command and a keybinding, viz.
+
+:Twitter <search terms>                                     *:Howdoi*
+    Run twitter and output to a scratch buffer, e.g. >
+        :Twitter insert svg latex
+<
+
+=====================================================================
+Section 2: Config                                      *TwitterConfig*
+
+----------------------------------------------------------------------
+                                                     *'g:twitter_num'*
+Values: Num
+Default: 1
+
+This excludes any particular filepaths, in addition to anything in
+your gitignore. Files to exclude should be separated commas but no
+spaces, e.g.  >
+    let g:twitter_exclude='TODO.md,README.md'
+<
+
+                                                  *'g:twitter_options'*
+Values: String
+Default: ''
+
+This string contains any command line options that should be passed 
+to twitter. 
+
+======================================================================
+Section 3: License                                     *TwitterLicense*
+
+This plugin is licensed under the BDS3 license. 
