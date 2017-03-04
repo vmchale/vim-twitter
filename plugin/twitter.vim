@@ -191,5 +191,5 @@ endfunction "}}}
 
 command! Tweet call TwitterWriteFromBuffer()
 command! Timeline call TwitterTimeline()
-command! -nargs=1 Timeline call TwitterTimeline(<f-args>)
+command! -nargs=1 Profile call TwitterProfile(<f-args>)
 map <silent> tt :Timeline<CR>
