@@ -2,6 +2,12 @@
 
 ## Installation
 
+For `Vundle`, add the following to your `~/.vimrc`:
+
+```
+Plugin 'vmchale/twitter-vim'
+```
+
 You'll have to install the Haskell **C**ommand **L**ine **I**nterface
 **T**weeter, viz.
 
