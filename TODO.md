@@ -1,6 +1,6 @@
 - [ ] tweet build errors
 - [ ] markdown cheatsheet can be pulled easily? 
-- [ ] tweet from a buffer (and allow user to open scratch buffer)
-- [ ] get user timeline & display in buffer + rebind scrolling keys? 
+- [x] tweet from a buffer (and allow user to open scratch buffer)
+- [x] get user timeline & display in buffer + rebind scrolling keys? 
 - [ ] set cred globally (duh)
   - [ ] accept num tweets as arg:
