@@ -2,8 +2,8 @@
 
 ## Installation
 
-You'll have to install the Haskell __C__ommand __L__ine __I__nterface
-__T__weeter, viz.
+You'll have to install the Haskell **C**ommand **L**ine **I**nterface
+**T**weeter, viz.
 
 ```
 stack install clit
