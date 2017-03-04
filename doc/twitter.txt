@@ -1,0 +1,68 @@
+*twitter.txt* Use twitter without leaving vim!
+   __           _ __  __                     _
+  / /__      __(_) /_/ /____  _____   _   __(_)___ ___
+ / __/ | /| / / / __/ __/ _ \/ ___/  | | / / / __ `__ \
+/ /_ | |/ |/ / / /_/ /_/  __/ /      | |/ / / / / / / /
+\__/ |__/|__/_/\__/\__/\___/_/       |___/_/_/ /_/ /_/
+
+====================================================================
+CONTENTS                                            *TwitterContents*
+
+    1. Usage ......................................... |TwitterUsage|
+    2. Config ....................................... |TwitterConfig|
+    3. License ..................................... |TwitterLicense|
+
+====================================================================
+Section 1: Usage                                      *TwitterUsage*
+
+By default, twitter-vim provides a command and a keybinding, viz.
+
+:Profile <screen_name>                                      *:Tweet*
+    Get a user's profile and output to a scratch buffer, e.g. >
+        :Profile pinepapplesmear
+<
+
+:Timeline                                                 *:Timeline*
+    Brings up 20 tweets from your timeline in a scratch buffer. Press 
+    'q' within the buffer to exit.
+
+:Tweet                                                       *:Tweet*
+    Opens a scratch buffer for you to write your tweets. Press 'd' in 
+    normal mode to send and press 'q' in normal mode to quit. 
+
+<silent> tt
+    Brings up your timeline
+
+<silent> ti
+    Opens scratch buffer to tweet.
+
+=====================================================================
+Section 2: Config                                     *TwitterConfig*
+
+----------------------------------------------------------------------
+                                                     *'g:twitter_num'*
+Values: Num
+Default: 8
+
+This sets the default number of tweets to retrieve from your timeline
+e.g.  >
+    let g:twitter_num=5
+<
+
+                                                     *'g:twitter_cred'*
+Values: String
+Default: '~/.cred'
+
+This sets the path to the file containing your API keys etc.
+
+                                                  *'g:twitter_options'*
+Values: String
+Default: ''
+
+This string contains any command line options that should be passed 
+to the tweeter. 
+
+======================================================================
+Section 3: License                                     *TwitterLicense*
+
+This plugin is licensed under the BDS3 license. 
