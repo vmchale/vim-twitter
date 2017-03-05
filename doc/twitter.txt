@@ -30,6 +30,9 @@ By default, twitter-vim provides a command and a keybinding, viz.
     Opens a scratch buffer for you to write your tweets. Press 'd' in 
     normal mode to send and press 'q' in normal mode to quit. 
 
+:PassportNow                                           *:PassportNow*
+    Gets the most recent capslocked aneurysms from our lovely POTUS. 
+
 <silent> tt
     Brings up your timeline
 
