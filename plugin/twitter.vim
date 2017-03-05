@@ -191,6 +191,6 @@ endfunction "}}}
 command! Tweet call TwitterWriteFromBuffer()
 command! Timeline call TwitterTimeline()
 command! -nargs=1 Profile call TwitterProfile(<f-args>)
-command! PassportNow call TwitterProfile('realDonaldTrump')
+command! PassportNow call TwitterProfile("realDonaldTrump")
 map <silent> tt :Timeline<CR>
 map <silent> ti :Tweet<CR>
