@@ -186,7 +186,7 @@ fun! TwitterWriteFromBuffer() "{{{
 
     nnoremap <silent> <buffer> t <esc>:w !tweet -c ~/.cred send -t15<cr> 
     nnoremap <silent> <buffer> q <esc>:close<cr>
-    nnoremap <silent> <buffer> h <esc>:%s/./&/gn<cr>
+    nnoremap <silent> <buffer> h <esc>:%s/./&/gn \| normal g,<cr>
 
 endfunction "}}}
 
