@@ -54,6 +54,7 @@ function! s:ScratchMarkBuffer()
     setlocal wrap
     setlocal linebreak
     setlocal nolist
+    setlocal nohlsearch
 endfunction
 
 " Return the number of visual lines in the buffer
