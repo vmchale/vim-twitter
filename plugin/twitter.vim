@@ -176,6 +176,7 @@ fun! TwitterWriteFromBuffer() "{{{
     endif
 
     call s:ScratchMarkBuffer()
+    call startinsert()
 
     let size = s:CountVisualLines()
     if size != g:twitter_buf_size
