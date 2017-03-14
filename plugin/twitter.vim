@@ -176,7 +176,6 @@ fun! TwitterWriteFromBuffer() "{{{
     endif
 
     call s:ScratchMarkBuffer()
-    call startinsert()
 
     let size = s:CountVisualLines()
     if size != g:twitter_buf_size
@@ -184,6 +183,7 @@ fun! TwitterWriteFromBuffer() "{{{
     endif
 
     execute 'resize ' . size
+    execute 'startinsert'
 
     nnoremap <silent> <buffer> t <esc>:w !tweet -c ~/.cred input -t15<cr> 
     nnoremap <silent> <buffer> q <esc>:close<cr>
