@@ -31,6 +31,10 @@ By default, twitter-vim provides a command and a keybinding, viz.
     normal mode to send and press 'q' in normal mode to quit. Press
     'h' to see the number of characters in the buffer. 
 
+:MyTweets                                                 *:MyTweets*
+    Get your timeline, with your screen name as set in 
+    |g:twitter_screen_name|
+
 :PassportNow                                           *:PassportNow*
     Gets the most recent capslocked aneurysms from our lovely POTUS. 
 
@@ -58,6 +62,12 @@ Values: String
 Default: '~/.cred'
 
 This sets the path to the file containing your API keys etc.
+
+                                              *'g:twitter_screen_name'*
+Values: String
+Default: 'lemondefr'
+
+This string contains your screen name. It is read by |MyTweets|.
 
                                                   *'g:twitter_options'*
 Values: String
