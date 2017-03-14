@@ -1,4 +1,4 @@
-*twittert* Use twitter without leaving vim!
+*twitter* Use twitter without leaving vim!
    __           _ __  __                     _
   / /__      __(_) /_/ /____  _____   _   __(_)___ ___
  / __/ ❘ /❘ / / / __/ __/ _ \/ ___/  ❘ ❘ / / / __ `__ \
