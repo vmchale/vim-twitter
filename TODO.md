@@ -2,5 +2,7 @@
 - [ ] markdown cheatsheet can be pulled easily? 
 - [x] tweet from a buffer (and allow user to open scratch buffer)
 - [x] get user timeline & display in buffer + rebind scrolling keys? 
-- [ ] set cred globally (duh)
+- [x] set cred globally (duh)
   - [ ] accept num tweets as arg:
+- [ ] myTimeline to Timeline single arg?
+- [ ] <unique> key mappings!

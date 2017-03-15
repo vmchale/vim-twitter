@@ -38,10 +38,10 @@ By default, twitter-vim provides a command and a keybinding, viz.
 :PassportNow                                           *:PassportNow*
     Gets the most recent capslocked aneurysms from our lovely POTUS. 
 
-<silent> tt
+<Leader> tt
     Brings up your timeline
 
-<silent> ti
+<Leader> ti
     Opens scratch buffer to tweet.
 
 =====================================================================
