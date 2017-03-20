@@ -5,4 +5,5 @@
 - [x] set cred globally (duh)
   - [ ] accept num tweets as arg:
 - [ ] myTimeline to Timeline single arg?
-- [ ] <unique> key mappings!
+- [ ] set path to credentials via variable
+- [ ] rust executable
