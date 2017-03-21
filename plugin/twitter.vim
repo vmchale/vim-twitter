@@ -16,7 +16,7 @@ if !exists("g:twitter_cred")
 endif
 
 " TODO document this
-if !exists("g:twitter_use_rust")
+if exists("g:twitter_use_rust")
     if g:twitter_use_rust == 1
         execute '.! alias tweet="tw" ; export CLICOLOR_FORCE=0'
     endif
