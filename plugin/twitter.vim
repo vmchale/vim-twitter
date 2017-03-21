@@ -15,6 +15,13 @@ if !exists("g:twitter_cred")
     let g:twitter_cred = '~/.cred'
 endif
 
+" TODO document this
+if !exists("g:twitter_use_rust")
+    if g:twitter_use_rust == 1
+        execute '.! alias tweet="tw" ; export CLICOLOR_FORCE=0'
+    endif
+endif
+
 if !exists("g:twitter_screen_name")
     let g:twitter_screen_name = 'lemondefr'
 endif
@@ -94,7 +101,7 @@ endfunction "}}}
 
 " Close twitter Buffer
 fun! TwitterClose() "{{{
-    let last_buffer = bufnr("%")
+    let last_buffer = bufnr('%')
     if s:TwitterGotoWin() >= 0
         close
     endif
@@ -105,7 +112,7 @@ endfunction "}}}
 
 " Open a scratch buffer or reuse the previous one
 fun! TwitterTimeline() "{{{
-    let last_buffer = bufnr("%")
+    let last_buffer = bufnr('%')
 
     if s:TwitterGotoWin() < 0
         new
@@ -118,9 +125,8 @@ fun! TwitterTimeline() "{{{
 
     call s:ScratchMarkBuffer()
 
-    " separate function? cuz this should read/display stuff too. 
     " execute ':w .! tweet -c' . g:twitter_num
-    execute '.! tweet -c ~/.cred view -n' . g:twitter_num
+    execute '.! tweet -c ' . g:twitter_cred . ' view -n' . g:twitter_num
     setl nomodifiable
     
     let size = s:CountVisualLines()
@@ -137,7 +143,7 @@ endfunction "}}}
 
 " Open a scratch buffer or reuse the previous one
 fun! TwitterProfile(screen_name) "{{{
-    let last_buffer = bufnr("%")
+    let last_buffer = bufnr('%')
 
     if s:TwitterGotoWin() < 0
         new
@@ -168,7 +174,7 @@ fun! TwitterProfile(screen_name) "{{{
 endfunction "}}}
 
 fun! TwitterWriteFromBuffer() "{{{
-    let last_buffer = bufnr("%")
+    let last_buffer = bufnr('%')
 
     if s:TwitterGotoWin() < 0
         new
