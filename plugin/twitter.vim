@@ -19,7 +19,7 @@ endif
 if exists("g:twitter_use_rust")
     if g:twitter_use_rust == 1
         exec 'silent ! export CLICOLOR_FORCE=0'
-        let g:twitter_executable = 'tw'
+        let g:twitter_executable = 'env CLICOLOR=0 tw'
     else
         let g:twitter_executable = 'tweet'
     endif
