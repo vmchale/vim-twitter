@@ -51,8 +51,11 @@ Section 2: Config                                     *TwitterConfig*
 Values: Boolean                                 *'g:twitter_use_rust'*
 Default: 0
 
-Toggle whether vim should use the rust-based executable or the default
-to the haskell implementation. 
+Toggle whether vim should use the rust-based executable or default
+to the haskell implementation. To use the rust executable add the 
+following to your .vimrc  >
+    let g:twitter_use_rust=1
+<
 
 
                                                      *'g:twitter_num'*
