@@ -21,7 +21,7 @@ You can also download it for linux from [here](https://github.com/vmchale/comman
 hopefully it shouldn't be too hard to find. 
 
 There is also a rust version that is mostly complete, available
-[here](https://github.com/vmchale/command-line-tweeter/releases).
+[here](https://github.com/vmchale/clit-rs/releases).
 
 ## Config
 After that, put your API keys in a file (default `~/.cred` or set path with 
