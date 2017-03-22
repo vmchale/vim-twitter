@@ -35,12 +35,12 @@ tok-sec: TOKEN_SECRET_HERE
 If you want to use the rust backend instead of the haskell backend, put the
 following in your `.vimrc`:
 
-```vimscript
+```vim
 let g:twitter_use_rust=1
 ```
 
 ## Use
 
-To view your timeline, use `:Timeline` or `<silent> tt`. To tweet, enter
+To view your timeline, use `:Timeline` or `<silent> tl`. To tweet, enter
 `:Tweet` to open a scratch buffer, and then `t` in normal mode to tweet its
 contents. Hit `q` to exit. 
