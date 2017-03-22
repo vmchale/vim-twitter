@@ -1,6 +1,6 @@
 # twitter-vim
 
-![Displaying Cher's tweets in vim.](https://raw.githubusercontent.com/vmchale/clit-rs/master/vim-twitter-screenshot.png)
+![Displaying Cher's tweets in vim.](https://raw.githubusercontent.com/vmchale/vim-twitter/master/vim-twitter-screenshot.png)
 
 ## Installation
 
