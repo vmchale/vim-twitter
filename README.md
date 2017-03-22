@@ -1,5 +1,7 @@
 # twitter-vim
 
+![Displaying Cher's tweets in vim.](https://raw.githubusercontent.com/vmchale/clit-rs/master/vim-twitter-screenshot.png)
+
 ## Installation
 
 For `vim-plug`, add the following to your `~/.vimrc`:
