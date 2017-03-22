@@ -48,6 +48,13 @@ By default, twitter-vim provides a command and a keybinding, viz.
 Section 2: Config                                     *TwitterConfig*
 
 ----------------------------------------------------------------------
+Values: Boolean                                 *'g:twitter_use_rust'*
+Default: 0
+
+Toggle whether vim should use the rust-based executable or the default
+to the haskell implementation. 
+
+
                                                      *'g:twitter_num'*
 Values: Num
 Default: 8
