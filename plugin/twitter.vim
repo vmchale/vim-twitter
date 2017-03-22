@@ -178,7 +178,7 @@ fun! TwitterProfile(screen_name) "{{{
 endfunction 
 
 fun! TwitterWrite() 
-    execute 'silent .! ' . g:twitter_executable . ' -c ' . g:twitter_cred . ' input'
+    execute '.! ' . g:twitter_executable . ' -c ' . g:twitter_cred . ' input'
 endfunction 
 
 fun! TwitterWriteFromBuffer() 
@@ -203,8 +203,7 @@ fun! TwitterWriteFromBuffer()
     execute 'resize ' . size
     execute 'startinsert'
 
-    nnoremap <silent> <buffer> r <esc>:call TwitterWrite()<cr>
-    nnoremap <silent> <buffer> t <esc>:w !tweet -c ~/.cred input -t15<cr> 
+    nnoremap <silent> <buffer> t <esc>:silent call TwitterWrite()<cr>
     nnoremap <silent> <buffer> q <esc>:close<cr>
     nnoremap <silent> <buffer> h <esc>:%s/./&/gn \| normal g,<cr>
 
