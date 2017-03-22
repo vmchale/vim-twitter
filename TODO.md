@@ -6,4 +6,5 @@
   - [ ] accept num tweets as arg:
 - [ ] myTimeline to Timeline single arg?
 - [ ] set path to credentials via variable
-- [ ] rust executable
+- [x] rust executable
+- [ ] lazy-loading?

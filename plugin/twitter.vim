@@ -18,8 +18,13 @@ endif
 " TODO document this
 if exists("g:twitter_use_rust")
     if g:twitter_use_rust == 1
-        exec 'silent ! alias tweet="tw" ; export CLICOLOR_FORCE=0'
+        exec 'silent ! export CLICOLOR_FORCE=0'
+        let g:twitter_executable = 'tw'
+    else
+        let g:twitter_executable = 'tweet'
     endif
+else
+    let g:twitter_executable = 'tweet'
 endif
 
 if !exists("g:twitter_screen_name")
@@ -126,7 +131,7 @@ fun! TwitterTimeline() "{{{
     call s:ScratchMarkBuffer()
 
     " execute ':w .! tweet -c' . g:twitter_num
-    execute '.! tweet -c ' . g:twitter_cred . ' view -n' . g:twitter_num
+    execute '.! ' . g:twitter_executable . ' -c ' . g:twitter_cred . ' view -n' . g:twitter_num
     setl nomodifiable
     
     let size = s:CountVisualLines()
@@ -158,7 +163,7 @@ fun! TwitterProfile(screen_name) "{{{
 
     " separate function? cuz this should read/display stuff too. 
     " execute ':w .! tweet -c' . g:twitter_num
-    execute '.! tweet -c ~/.cred user -n' . g:twitter_num . ' ' . a:screen_name
+    execute '.! ' . g:twitter_executable . ' -c ~/.cred user -n' . g:twitter_num . ' ' . a:screen_name
     setl nomodifiable
     
     let size = s:CountVisualLines()
