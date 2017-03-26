@@ -178,7 +178,7 @@ fun! TwitterProfile(screen_name) "{{{
 endfunction 
 
 fun! TwitterWrite() 
-    execute '.! ' . g:twitter_executable . ' -c ' . g:twitter_cred . ' input'
+    execute ':w .! ' . g:twitter_executable . ' -c ' . g:twitter_cred . ' input'
 endfunction 
 
 fun! TwitterWriteFromBuffer() 
