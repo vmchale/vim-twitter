@@ -16,35 +16,24 @@ if !exists("g:twitter_cred")
 endif
 
 " TODO document color options too
-if exists("g:twitter_use_color")
-    if g:twitter_use_color == 1
-        if exists("g:twitter_use_rust")
-            if g:twitter_use_rust == 1
-                let g:twitter_executable = 'tw'
-            else
-                let g:twitter_executable = 'tweet -l'
-            endif
-        else
-            let g:twitter_executable = 'tweet -l'
-        endif
+if !exists("g:twitter_use_color")
+    let g:twitter_use_color = 0
+    " TODO make it detect plugin to set defaults
+endif
+
+if !exists("g:twitter_use_rust")
+    let g:twitter_use_rust = 0
+endif
+
+if g:twitter_use_color == 1
+    if g:twitter_use_rust == 1
+        let g:twitter_executable = 'tw'
     else
-        if exists("g:twitter_use_rust")
-            if g:twitter_use_rust == 1
-                let g:twitter_executable = 'env CLICOLOR=0 tw'
-            else
-                let g:twitter_executable = 'tweet'
-            endif
-        else
-            let g:twitter_executable = 'tweet'
-        endif
+        let g:twitter_executable = 'tweet -l'
     endif
 else
-    if exists("g:twitter_use_rust")
-        if g:twitter_use_rust == 1
-            let g:twitter_executable = 'env CLICOLOR=0 tw'
-        else
-            let g:twitter_executable = 'tweet'
-        endif
+    if g:twitter_use_rust == 1
+        let g:twitter_executable = 'env CLICOLOR=0 tw'
     else
         let g:twitter_executable = 'tweet'
     endif
