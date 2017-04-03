@@ -15,15 +15,39 @@ if !exists("g:twitter_cred")
     let g:twitter_cred = '~/.cred'
 endif
 
-" TODO document this
-if exists("g:twitter_use_rust")
-    if g:twitter_use_rust == 1
-        let g:twitter_executable = 'env CLICOLOR=0 tw'
+" TODO document color options too
+if exists("g:twitter_use_color")
+    if g:twitter_use_color == 1
+        if exists("g:twitter_use_rust")
+            if g:twitter_use_rust == 1
+                let g:twitter_executable = 'tw'
+            else
+                let g:twitter_executable = 'tweet -l'
+            endif
+        else
+            let g:twitter_executable = 'tweet -l'
+        endif
+    else
+        if exists("g:twitter_use_rust")
+            if g:twitter_use_rust == 1
+                let g:twitter_executable = 'env CLICOLOR=0 tw'
+            else
+                let g:twitter_executable = 'tweet'
+            endif
+        else
+            let g:twitter_executable = 'tweet'
+        endif
+    endif
+else
+    if exists("g:twitter_use_rust")
+        if g:twitter_use_rust == 1
+            let g:twitter_executable = 'env CLICOLOR=0 tw'
+        else
+            let g:twitter_executable = 'tweet'
+        endif
     else
         let g:twitter_executable = 'tweet'
     endif
-else
-    let g:twitter_executable = 'tweet'
 endif
 
 if !exists("g:twitter_screen_name")
@@ -140,6 +164,10 @@ fun! TwitterTimeline() "{{{
     endif
 
     execute 'resize ' . size
+
+    if exists(":AnsiEsc")
+        execute 'AnsiEsc'
+    endif
 
     nnoremap <silent> <buffer> q <esc>:close<cr>
 
