@@ -153,7 +153,6 @@ fun! TwitterTimeline() "{{{
     endif
 
     execute 'resize ' . size
-
     if exists(":AnsiEsc")
         execute 'AnsiEsc'
     endif
@@ -189,6 +188,9 @@ fun! TwitterProfile(screen_name) "{{{
     endif
 
     execute 'resize ' . size
+    if exists(":AnsiEsc")
+        execute 'AnsiEsc'
+    endif
 
     nnoremap <silent> <buffer> q <esc>:close<cr>
 
@@ -218,6 +220,9 @@ fun! TwitterWriteFromBuffer()
     endif
 
     execute 'resize ' . size
+    if exists(":AnsiEsc")
+        execute 'AnsiEsc'
+    endif
     execute 'startinsert'
 
     nnoremap <silent> <buffer> t <esc>:silent call TwitterWrite()<cr>
