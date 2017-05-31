@@ -236,5 +236,5 @@ command! Timeline call TwitterTimeline()
 command! -nargs=1 Profile call TwitterProfile(<f-args>)
 command! PassportNow call TwitterProfile("realDonaldTrump")
 command! MyTweets call TwitterProfile(twitter_screen_name)
-map <silent> tl :Timeline<CR>
-map <silent> tw :Tweet<CR>
+map <silent> <Plug>TwitterTimeline :Timeline<CR>
+map <silent> <Plug>Tweet :Tweet<CR>
