@@ -39,10 +39,15 @@ By default, twitter-vim provides a command and a keybinding, viz.
     Gets the most recent capslocked aneurysms from our lovely POTUS. 
 
 <silent> <Plug>TwitterTimeline
-    Brings up your timeline
+    Brings up your timeline. To bind this to 'tim', put the following
+    in you ~/.vimrc >
+        :nmap tim <Plug>TwitterTimeline
+<
 
 <silent> <Plug>Tweet
-    Opens scratch buffer to tweet.
+    Opens scratch buffer to tweet. To enable this beybinding, I use >
+        :nmap tw <Plug>Tweet
+<
 
 =====================================================================
 Section 2: Config                                     *TwitterConfig*
