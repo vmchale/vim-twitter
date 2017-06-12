@@ -29,13 +29,13 @@ if g:twitter_use_color == 1
     if g:twitter_use_rust == 1
         let g:twitter_executable = 'tw'
     else
-        let g:twitter_executable = 'tweet -l'
+        let g:twitter_executable = 'tweet'
     endif
 else
     if g:twitter_use_rust == 1
         let g:twitter_executable = 'env CLICOLOR=0 tw'
     else
-        let g:twitter_executable = 'tweet'
+        let g:twitter_executable = 'tweet -l'
     endif
 endif
 
