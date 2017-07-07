@@ -12,7 +12,7 @@ endif
 let g:__TWITTER_VIM__ = 1
 
 if !exists("g:twitter_cred")
-    let g:twitter_cred = '~/.cred'
+    let g:twitter_cred = '~/.cred.toml'
 endif
 
 " TODO document color options too
@@ -178,7 +178,7 @@ fun! TwitterProfile(screen_name) "{{{
 
     " separate function? cuz this should read/display stuff too. 
     " execute ':w .! tweet -c' . g:twitter_num
-    execute '.! ' . g:twitter_executable . ' -c ~/.cred user -n' . g:twitter_num . ' ' . a:screen_name
+    execute '.! ' . g:twitter_executable . ' -c ' . g:twitter_cred . ' user -n' . g:twitter_num . ' ' . a:screen_name
     setl nomodifiable
     
     let size = s:CountVisualLines()

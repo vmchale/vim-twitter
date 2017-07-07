@@ -14,7 +14,7 @@ You'll have to install the Haskell **C**ommand **L**ine **I**nterface
 **T**weeter, viz.
 
 ```
-stack install clit
+stack install tweet-hs
 ```
 
 You can also download it for linux from [here](https://github.com/vmchale/command-line-tweeter/releases);
@@ -24,14 +24,14 @@ There is also a rust version that is mostly complete, available
 [here](https://github.com/vmchale/clit-rs/releases).
 
 ## Config
-After that, put your API keys in a file (default `~/.cred` or set path with 
+After that, put your API keys in a file (default `~/.cred.toml` or set path with 
 `g:twitter_cred`), viz.
 
 ```
-api-key: API_KEY_HERE
-api-sec: API_SECRET_HERE
-tok: OAUTH_TOKEN_HERE
-tok-sec: TOKEN_SECRET_HERE
+api-key = "API_KEY_HERE"
+api-sec = "API_SECRET_HERE"
+tok = "OAUTH_TOKEN_HERE"
+tok-sec = "TOKEN_SECRET_HERE"
 ```
 
 If you want to use the rust backend instead of the haskell backend, put the
