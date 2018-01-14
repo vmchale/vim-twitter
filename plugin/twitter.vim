@@ -18,7 +18,7 @@ endif
 " TODO document color options too
 if !exists('g:twitter_use_color')
     let g:twitter_use_color = 0
-    ' TODO make it detect plugin to set defaults
+    " TODO make it detect plugin to set defaults
 endif
 
 if !exists('g:twitter_use_rust')

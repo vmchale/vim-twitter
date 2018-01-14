@@ -52,8 +52,8 @@ By default, twitter-vim provides a command and a keybinding, viz.
 =====================================================================
 Section 2: Config                                     *TwitterConfig*
 
-----------------------------------------------------------------------
-Values: Boolean                                 *'g:twitter_use_rust'*
+---------------------------------------------------------------------
+Values: Boolean                                *'g:twitter_use_rust'*
 Default: 0
 
 Toggle whether vim should use the rust-based executable or default
@@ -63,7 +63,7 @@ following to your .vimrc  >
 <
 
 
-                                                     *'g:twitter_num'*
+                                                    *'g:twitter_num'*
 Values: Num
 Default: 8
 
@@ -72,28 +72,28 @@ e.g.  >
     let g:twitter_num=5
 <
 
-                                                     *'g:twitter_cred'*
+                                                   *'g:twitter_cred'*
 Values: String
-Default: '~/.cred'
+Default: '~/.cred.toml'
 
 This sets the path to the file containing your API keys etc.
 
-                                              *'g:twitter_screen_name'*
+                                            *'g:twitter_screen_name'*
 Values: String
 Default: 'lemondefr'
 
 This string contains your screen name. It is read by |MyTweets|.
 
-                                                  *'g:twitter_options'*
+                                                *'g:twitter_options'*
 Values: String
 Default: ''
 
 This string contains any command line options that should be passed 
 to the tweeter. As an example: >
-    let g:twitter_options='--color'
+    let g:twitter_options='--no-replies'
 <
 
 ======================================================================
-Section 3: License                                     *TwitterLicense*
+Section 3: License                                    *TwitterLicense*
 
 This plugin is licensed under the BDS3 license. 
