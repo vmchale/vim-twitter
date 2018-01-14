@@ -133,7 +133,7 @@ fun! TwitterTimeline() "{{{
 
     if s:TwitterGotoWin() < 0
         new
-        exe 'file ' . g:twitter_tl_buf_name
+        exe 'file ' . 'Favorited'
         setl modifiable
     else
         setl modifiable
