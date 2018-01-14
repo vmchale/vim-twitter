@@ -6,11 +6,11 @@
 \__/ ❘__/❘__/_/\__/\__/\___/_/       ❘___/_/_/ /_/ /_/
 
 ====================================================================
-CONTENTS                                            *TwitterContents*
+CONTENTS                                           *TwitterContents*
 
-    1. Usage ......................................... |TwitterUsage|
-    2. Config ....................................... |TwitterConfig|
-    3. License ..................................... |TwitterLicense|
+    1. Usage ........................................ |TwitterUsage|
+    2. Config ...................................... |TwitterConfig|
+    3. License .................................... |TwitterLicense|
 
 ====================================================================
 Section 1: Usage                                      *TwitterUsage*
@@ -19,12 +19,12 @@ By default, twitter-vim provides a command and a keybinding, viz.
 
 :Profile <screen_name>                                      *:Tweet*
     Get a user's profile and output to a scratch buffer, e.g. >
-        :Profile pinepapplesmear
+        :Profile NateSilver538
 <
 
-:Timeline                                                 *:Timeline*
-    Brings up 20 tweets from your timeline in a scratch buffer. Press 
-    'q' within the buffer to exit.
+:Timeline                                                *:Timeline*
+    Brings up 20 tweets from your timeline in a scratch buffer. 
+    Press 'q' within the buffer to exit.
 
 :Tweet                                                       *:Tweet*
     Opens a scratch buffer for you to write your tweets. Press 't' in 
@@ -89,7 +89,9 @@ Values: String
 Default: ''
 
 This string contains any command line options that should be passed 
-to the tweeter. 
+to the tweeter. As an example: >
+    let g:twitter_options='--color'
+<
 
 ======================================================================
 Section 3: License                                     *TwitterLicense*

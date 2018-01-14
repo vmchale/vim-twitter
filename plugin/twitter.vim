@@ -6,22 +6,22 @@
 " Version: 0.1.0.0
 " ChangeLog:
 "       0.1.0.0: initial commit.
-if exists("g:__TWITTER_VIM__")
+if exists('g:__TWITTER_VIM__')
     finish
 endif
 let g:__TWITTER_VIM__ = 1
 
-if !exists("g:twitter_cred")
+if !exists('g:twitter_cred')
     let g:twitter_cred = '~/.cred.toml'
 endif
 
 " TODO document color options too
-if !exists("g:twitter_use_color")
+if !exists('g:twitter_use_color')
     let g:twitter_use_color = 0
-    " TODO make it detect plugin to set defaults
+    ' TODO make it detect plugin to set defaults
 endif
 
-if !exists("g:twitter_use_rust")
+if !exists('g:twitter_use_rust')
     let g:twitter_use_rust = 0
 endif
 
@@ -39,19 +39,19 @@ else
     endif
 endif
 
-if !exists("g:twitter_screen_name")
+if !exists('g:twitter_screen_name')
     let g:twitter_screen_name = 'lemondefr'
 endif
 
-if !exists("g:twitter_num")
+if !exists('g:twitter_num')
     let g:twitter_num = 8
 endif
 
 " how to pipe buffer to external
 " You can use :w !cmd to write the current buffer to the stdin of an external command. From :help :w_c
-":buffer Twitter " should take us there?? 
+":buffer Twitter ' should take us there?? 
 
-if !exists("g:twitter_options")
+if !exists('g:twitter_options')
     let g:twitter_options = ''
 endif
 
@@ -60,11 +60,11 @@ let g:twitter_buf_name = 'Twitter'
 let g:twitter_tl_buf_name = 'Timeline'
 
 " default buffer size for 
-if !exists("g:twitter_tl_buf_size")
+if !exists('g:twitter_tl_buf_size')
     let g:twitter_tl_buf_size = 18
 endif
 
-if !exists("g:twitter_buf_size")
+if !exists('g:twitter_buf_size')
     let g:twitter_buf_size = 8
 endif
 
@@ -85,21 +85,23 @@ function! s:ScratchMarkBuffer()
     setlocal nohlsearch
 endfunction
 
+" TODO fave tweet keybinding?
+
 " Return the number of visual lines in the buffer
 fun! s:CountVisualLines()
-    let initcursor = getpos(".")
+    let initcursor = getpos('.')
     call cursor(1,1)
     let i = 0
     let previouspos = [-1,-1,-1,-1]
     " keep moving cursor down one visual line until it stops moving position
-    while previouspos != getpos(".")
+    while previouspos != getpos('.')
         let i += 1
         " store current cursor position BEFORE moving cursor
-        let previouspos = getpos(".")
+        let previouspos = getpos('.')
         normal! gj
     endwhile
     " restore cursor position
-    call setpos(".", initcursor)
+    call setpos('.', initcursor)
     return i
 endfunction
 
@@ -110,7 +112,7 @@ fun! s:TwitterGotoWin() "{{{
     if bufnum >= 0
         let win_num = bufwinnr( bufnum )
         " Will return negative for already deleted window
-        exe win_num . "wincmd w"
+        exe win_num . 'wincmd w'
         return 0
     endif
     return -1
@@ -124,7 +126,7 @@ fun! TwitterClose() "{{{
     endif
     let win_num = bufwinnr( last_buffer )
     " Will return negative for already deleted window
-    exe win_num . "wincmd w"
+    exe win_num . 'wincmd w'
 endfunction "}}}
 
 " Open a scratch buffer or reuse the previous one
@@ -137,7 +139,7 @@ fun! TwitterTimeline() "{{{
         setl modifiable
     else
         setl modifiable
-        normal ggVGd
+        exec 'normal! ggVGd'
     endif
 
     call s:ScratchMarkBuffer()
@@ -153,7 +155,7 @@ fun! TwitterTimeline() "{{{
     endif
 
     execute 'resize ' . size
-    if exists(":AnsiEsc")
+    if exists(':AnsiEsc')
         execute 'AnsiEsc'
     endif
 
@@ -162,7 +164,7 @@ fun! TwitterTimeline() "{{{
 endfunction "}}}
 
 " Open a scratch buffer or reuse the previous one
-fun! TwitterProfile(screen_name) "{{{
+fun! TwitterProfile(screen_name) "{,A{{
     let last_buffer = bufnr('%')
 
     if s:TwitterGotoWin() < 0
@@ -171,7 +173,7 @@ fun! TwitterProfile(screen_name) "{{{
         setl modifiable
     else
         setl modifiable
-        normal ggVGd
+        exec 'normal! ggVGd'
     endif
 
     call s:ScratchMarkBuffer()
@@ -188,7 +190,7 @@ fun! TwitterProfile(screen_name) "{{{
     endif
 
     execute 'resize ' . size
-    if exists(":AnsiEsc")
+    if exists(':AnsiEsc')
         execute 'AnsiEsc'
     endif
 
@@ -209,7 +211,7 @@ fun! TwitterWriteFromBuffer()
         setl modifiable
     else
         setl modifiable
-        normal ggVGd
+        exec 'normal! ggVGd'
     endif
 
     call s:ScratchMarkBuffer()
@@ -220,7 +222,7 @@ fun! TwitterWriteFromBuffer()
     endif
 
     execute 'resize ' . size
-    if exists(":AnsiEsc")
+    if exists(':AnsiEsc')
         execute 'AnsiEsc'
     endif
     execute 'startinsert'
@@ -237,4 +239,5 @@ command! -nargs=1 Profile call TwitterProfile(<f-args>)
 command! PassportNow call TwitterProfile("realDonaldTrump")
 command! MyTweets call TwitterProfile(twitter_screen_name)
 map <silent> <Plug>TwitterTimeline :Timeline<CR>
+map <silent> <Plug>MyProfile :MyTweets<CR>
 map <silent> <Plug>Tweet :Tweet<CR>
