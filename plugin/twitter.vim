@@ -162,6 +162,7 @@ endfunction "}}}
 
 fun! FaveTweet()
 
+    let tweet_id = expand('<cword>')
     let last_buffer = bufnr('%')
 
     if s:TwitterGotoWin() < 0
@@ -175,7 +176,6 @@ fun! FaveTweet()
 
     call s:ScratchMarkBuffer()
 
-    let tweet_id = expand('<cword>')
     execute '.! ' . g:twitter_executable . ' -c ' . g:twitter_cred . ' fav ' . tweet_id
     setl nomodifiable
     
