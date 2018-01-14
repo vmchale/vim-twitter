@@ -190,6 +190,8 @@ fun! FaveTweet()
         execute 'AnsiEsc'
     endif
 
+    nnoremap <silent> <buffer> q <esc>:close<cr>
+
 endfunction
 
 
