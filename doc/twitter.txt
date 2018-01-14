@@ -26,27 +26,27 @@ By default, twitter-vim provides a command and a keybinding, viz.
     Brings up 20 tweets from your timeline in a scratch buffer. 
     Press 'q' within the buffer to exit.
 
-:Tweet                                                       *:Tweet*
-    Opens a scratch buffer for you to write your tweets. Press 't' in 
-    normal mode to send and press 'q' in normal mode to quit. Press
-    'h' to see the number of characters in the buffer. 
+:Tweet                                                      *:Tweet*
+    Opens a scratch buffer for you to write your tweets. Press 't'
+    in normal mode to send and press 'q' in normal mode to quit. 
+    Press 'h' to see the number of characters in the buffer. 
 
 :MyTweets                                                 *:MyTweets*
     Get your timeline, with your screen name as set in 
     |g:twitter_screen_name|
 
 :PassportNow                                           *:PassportNow*
-    Gets the most recent capslocked aneurysms from our lovely POTUS. 
+    Fetch the latest capslocked aneurysms from our lovely POTUS. 
 
 <silent> <Plug>TwitterTimeline
     Brings up your timeline. To bind this to 'tim', put the following
     in you ~/.vimrc >
-        :nmap tim <Plug>TwitterTimeline
+        nmap tim <Plug>TwitterTimeline
 <
 
 <silent> <Plug>Tweet
-    Opens scratch buffer to tweet. To enable this beybinding, I use >
-        :nmap tw <Plug>Tweet
+    Opens scratch buffer to tweet. To enable this binding, I use >
+        nmap tw <Plug>Tweet
 <
 
 =====================================================================
