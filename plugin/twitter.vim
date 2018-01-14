@@ -1,11 +1,8 @@
 " =============================================================================
 " Description: Post tweets from a scratch buffer, or get your timeline and 
 " read it in a scratch buffer. 
-" File: twitter.vim
-" Author: Vanessa McHale <tmchale@wisc.edu>
+" Author: Vanessa McHale <vamchale@gmail.com>
 " Version: 0.1.0.0
-" ChangeLog:
-"       0.1.0.0: initial commit.
 if exists('g:__TWITTER_VIM__')
     finish
 endif
@@ -131,6 +128,7 @@ endfunction "}}}
 
 " Open a scratch buffer or reuse the previous one
 fun! TwitterTimeline() "{{{
+
     let last_buffer = bufnr('%')
 
     if s:TwitterGotoWin() < 0
@@ -144,7 +142,6 @@ fun! TwitterTimeline() "{{{
 
     call s:ScratchMarkBuffer()
 
-    " execute ':w .! tweet -c' . g:twitter_num
     execute '.! ' . g:twitter_executable . ' -c ' . g:twitter_cred . ' view -n' . g:twitter_num
     setl nomodifiable
     
@@ -163,8 +160,42 @@ fun! TwitterTimeline() "{{{
 
 endfunction "}}}
 
+fun! FaveTweet()
+
+    let last_buffer = bufnr('%')
+
+    if s:TwitterGotoWin() < 0
+        new
+        exe 'file ' . g:twitter_tl_buf_name
+        setl modifiable
+    else
+        setl modifiable
+        exec 'normal! ggVGd'
+    endif
+
+    call s:ScratchMarkBuffer()
+
+    let tweet_id = expand('<cword>')
+    execute '.! ' . g:twitter_executable . ' -c ' . g:twitter_cred . ' fav ' . tweet_id
+    setl nomodifiable
+    
+    let size = s:CountVisualLines()
+
+    if size > g:twitter_tl_buf_size
+        let size = g:twitter_tl_buf_size
+    endif
+
+    execute 'resize ' . size
+    if exists(':AnsiEsc')
+        execute 'AnsiEsc'
+    endif
+
+endfunction
+
+
 " Open a scratch buffer or reuse the previous one
-fun! TwitterProfile(screen_name) "{,A{{
+fun! TwitterProfile(screen_name)
+
     let last_buffer = bufnr('%')
 
     if s:TwitterGotoWin() < 0
@@ -179,7 +210,6 @@ fun! TwitterProfile(screen_name) "{,A{{
     call s:ScratchMarkBuffer()
 
     " separate function? cuz this should read/display stuff too. 
-    " execute ':w .! tweet -c' . g:twitter_num
     execute '.! ' . g:twitter_executable . ' -c ' . g:twitter_cred . ' user -n' . g:twitter_num . ' ' . a:screen_name
     setl nomodifiable
     
@@ -238,7 +268,9 @@ command! Timeline call TwitterTimeline()
 command! -nargs=1 Profile call TwitterProfile(<f-args>)
 command! PassportNow call TwitterProfile("realDonaldTrump")
 command! MyTweets call TwitterProfile(twitter_screen_name)
+command! FaveTweet call FaveTweet()
 
 map <silent> <Plug>TwitterTimeline :Timeline<CR>
 map <silent> <Plug>MyProfile :MyTweets<CR>
 map <silent> <Plug>Tweet :Tweet<CR>
+map <silent> <Plug>Favorite :FaveTweet<CR>

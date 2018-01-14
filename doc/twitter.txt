@@ -31,16 +31,16 @@ By default, twitter-vim provides a command and a keybinding, viz.
     in normal mode to send and press 'q' in normal mode to quit. 
     Press 'h' to see the number of characters in the buffer. 
 
-:MyTweets                                                 *:MyTweets*
+:MyTweets                                                *:MyTweets*
     Get your timeline, with your screen name as set in 
     |g:twitter_screen_name|
 
-:PassportNow                                           *:PassportNow*
+:PassportNow                                          *:PassportNow*
     Fetch the latest capslocked aneurysms from our lovely POTUS. 
 
 <silent> <Plug>TwitterTimeline
-    Brings up your timeline. To bind this to 'tim', put the following
-    in you ~/.vimrc >
+    Brings up your timeline. To bind this to 'tim', put the
+    following in you ~/.vimrc >
         nmap tim <Plug>TwitterTimeline
 <
 
