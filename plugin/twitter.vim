@@ -133,7 +133,7 @@ fun! TwitterTimeline() "{{{
 
     if s:TwitterGotoWin() < 0
         new
-        exe 'file ' . 'Favorited'
+        exe 'file ' . g:twitter_tl_buf_name
         setl modifiable
     else
         setl modifiable
@@ -168,7 +168,7 @@ fun! FaveTweet()
 
     if s:TwitterGotoWin() < 0
         new
-        exe 'file ' . g:twitter_tl_buf_name
+        exe 'file ' . 'Favorited'
         setl modifiable
     else
         setl modifiable
@@ -195,6 +195,40 @@ fun! FaveTweet()
 
 endfunction
 
+fun! RetweetFunction()
+
+    let tweet_id = expand('<cword>')
+    let last_buffer = bufnr('%')
+
+    if s:TwitterGotoWin() < 0
+        new
+        exe 'file ' . g:twitter_tl_buf_name
+        exe 'file ' . 'Retweeted'
+        setl modifiable
+    else
+        setl modifiable
+        exec 'normal! ggVGd'
+    endif
+
+    call s:ScratchMarkBuffer()
+
+    execute '.! ' . g:twitter_executable . ' -c ' . g:twitter_cred . ' rt ' . tweet_id
+    setl nomodifiable
+    
+    let size = s:CountVisualLines()
+
+    if size > g:twitter_tl_buf_size
+        let size = g:twitter_tl_buf_size
+    endif
+
+    execute 'resize ' . size
+    if exists(':AnsiEsc')
+        execute 'AnsiEsc'
+    endif
+
+    nnoremap <silent> <buffer> q <esc>:close<cr>
+
+endfunction
 
 " Open a scratch buffer or reuse the previous one
 fun! TwitterProfile(screen_name)
@@ -273,6 +307,7 @@ command! -nargs=1 Profile call TwitterProfile(<f-args>)
 command! PassportNow call TwitterProfile("realDonaldTrump")
 command! MyTweets call TwitterProfile(twitter_screen_name)
 command! FaveTweet call FaveTweet()
+command! Retweet call RetweetFunction()
 
 map <silent> <Plug>TwitterTimeline :Timeline<CR>
 map <silent> <Plug>MyProfile :MyTweets<CR>
