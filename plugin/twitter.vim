@@ -157,7 +157,7 @@ fun! TwitterTimeline() "{{{
     endif
 
     nnoremap <silent> <buffer> q <esc>:close<cr>
-    nnoremap <silent> <buffer> f <esc>:Favorite<cr>
+    nnoremap <silent> <buffer> f <esc>:FaveTweet<cr>
 
 endfunction "}}}
 
@@ -228,7 +228,7 @@ fun! TwitterProfile(screen_name)
     endif
 
     nnoremap <silent> <buffer> q <esc>:close<cr>
-    nnoremap <silent> <buffer> f <esc>:Favorite<cr>
+    nnoremap <silent> <buffer> f <esc>:FaveTweet<cr>
 
 endfunction 
 
