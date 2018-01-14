@@ -24,7 +24,8 @@ By default, twitter-vim provides a command and a keybinding, viz.
 
 :Timeline                                                *:Timeline*
     Brings up 20 tweets from your timeline in a scratch buffer. 
-    Press 'q' within the buffer to exit.
+    Press 'q' within the buffer to exit, or 'f' over a tweet ID to
+    favorite it.
 
 :Tweet                                                      *:Tweet*
     Opens a scratch buffer for you to write your tweets. Press 't'
@@ -37,6 +38,9 @@ By default, twitter-vim provides a command and a keybinding, viz.
 
 :PassportNow                                          *:PassportNow*
     Fetch the latest capslocked aneurysms from our lovely POTUS. 
+
+:FaveTweet                                              *:FaveTweet*
+    Favorite a tweet based on the tweet ID under the cursor.
 
 <silent> <Plug>TwitterTimeline
     Brings up your timeline. To bind this to 'tim', put the
