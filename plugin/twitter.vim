@@ -152,9 +152,6 @@ fun! TwitterTimeline() "{{{
     endif
 
     execute 'resize ' . size
-    if exists(':AnsiEsc')
-        execute 'AnsiEsc'
-    endif
 
     nnoremap <silent> <buffer> q <esc>:close<cr>
     nnoremap <silent> <buffer> f <esc>:FaveTweet<cr>
@@ -187,9 +184,6 @@ fun! FaveTweet()
     endif
 
     execute 'resize ' . size
-    if exists(':AnsiEsc')
-        execute 'AnsiEsc'
-    endif
 
     nnoremap <silent> <buffer> q <esc>:close<cr>
 
@@ -222,9 +216,6 @@ fun! RetweetFunction()
     endif
 
     execute 'resize ' . size
-    if exists(':AnsiEsc')
-        execute 'AnsiEsc'
-    endif
 
     nnoremap <silent> <buffer> q <esc>:close<cr>
 
@@ -257,9 +248,6 @@ fun! TwitterProfile(screen_name)
     endif
 
     execute 'resize ' . size
-    if exists(':AnsiEsc')
-        execute 'AnsiEsc'
-    endif
 
     nnoremap <silent> <buffer> q <esc>:close<cr>
     nnoremap <silent> <buffer> f <esc>:FaveTweet<cr>
@@ -290,9 +278,6 @@ fun! TwitterWriteFromBuffer()
     endif
 
     execute 'resize ' . size
-    if exists(':AnsiEsc')
-        execute 'AnsiEsc'
-    endif
     execute 'startinsert'
 
     nnoremap <silent> <buffer> t <esc>:silent call TwitterWrite()<cr>
