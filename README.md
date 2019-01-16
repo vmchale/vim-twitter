@@ -10,18 +10,14 @@ For `vim-plug`, add the following to your `~/.vimrc`:
 Plug 'vmchale/twitter-vim'
 ```
 
-You'll have to install the Haskell **C**ommand **L**ine **I**nterface
-**T**weeter, viz.
+You'll have to install the Haskell CLI tool, viz.
 
 ```
-stack install tweet-hs
+cabal new-install tweet-hs
 ```
 
 You can also download it for linux from [here](https://github.com/vmchale/command-line-tweeter/releases);
 hopefully it shouldn't be too hard to find. 
-
-There is also a rust version that is mostly complete, available
-[here](https://github.com/vmchale/clit-rs/releases).
 
 ## Config
 After that, put your API keys in a file (default `~/.cred.toml` or set path with 
@@ -32,13 +28,6 @@ api-key = "API_KEY_HERE"
 api-sec = "API_SECRET_HERE"
 tok = "OAUTH_TOKEN_HERE"
 tok-sec = "TOKEN_SECRET_HERE"
-```
-
-If you want to use the rust backend instead of the haskell backend, put the
-following in your `.vimrc`:
-
-```vim
-let g:twitter_use_rust=1
 ```
 
 ## Use
